@@ -1,0 +1,3 @@
+export const SET_BLOCK_HEIGHT = 'SET_BLOCK_HEIGHT'
+export const SET_LOGIN_INFO = 'SET_LOGIN_INFO'
+export const SET_WALLET_INFO = 'SET_WALLET_INFO'
