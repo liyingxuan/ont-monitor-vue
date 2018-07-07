@@ -1,7 +1,7 @@
 {
-  "name": "ont-main-net-view",
+  "name": "ont-node-monitor-view",
   "version": "1.0.0",
-  "description": "Main Net",
+  "description": "ONT Main Net Node Monitor",
   "author": "liyingxuan <mvp_xuan@163.com>",
   "private": true,
   "scripts": {
