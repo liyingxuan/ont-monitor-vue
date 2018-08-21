@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <router-view/>
+    <the-footer></the-footer>
   </div>
 </template>
 
 <script>
   import 'bootstrap/dist/css/bootstrap.min.css'
   import 'bootstrap/dist/js/bootstrap.min.js'
+  import TheFooter from '@/components/TheFooter'
 
   export default {
-    name: 'App'
+    name: 'App',
+    components: {TheFooter}
   }
 </script>
 

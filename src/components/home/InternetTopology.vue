@@ -7,7 +7,7 @@
 <script>
   export default {
     name: "it",
-    props: ['plots', 'plotsNameList'],
+    props: ['plots'],
     mounted() {
       this.$nextTick(function () {
         let $this = $(this.$el)
@@ -69,7 +69,6 @@
     margin-bottom: 56px;
     clear: both;
   }
-
 
   .explorer-index-it-panel .internet-topology {
     width: 100%;

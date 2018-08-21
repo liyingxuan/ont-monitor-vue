@@ -1,18 +1,14 @@
 <template>
-  <div class="container" style="width: 944px">
+  <div class="container">
     <div class="row">
       <top-nav></top-nav>
     </div>
 
     <div class="row">
-      <internet-topology
-        :plots="this.$store.state.InternetTopology.plots"
-        :plotsNameList="this.$store.state.InternetTopology.plotsName"></internet-topology>
+      <div class="col">
+        <internet-topology :plots="this.$store.state.InternetTopology.plots"></internet-topology>
+      </div>
     </div>
-
-    <!--<div class="row">-->
-      <!--<blockchain-info></blockchain-info>-->
-    <!--</div>-->
 
     <div class="row">
       <data-table :plots="this.$store.state.InternetTopology.plotsVal"></data-table>
@@ -22,17 +18,24 @@
 
 <script>
   import TopNav from '@/components/home/TopNav'
+  import TheFooter from '@/components/TheFooter'
   import InternetTopology from '@/components/home/InternetTopology'
   import DataTable from '@/components/home/DataTable'
-  import BlockchainInfo from '@/components/home/BlockchainInfo'
 
   export default {
     name: 'Home',
+    created: function () {
+      this.getPlotsData()
+    },
+    methods: {
+      getPlotsData() {
+        this.$store.dispatch('getPlots').then()
+      }
+    },
     components: {
       InternetTopology,
       TopNav,
-      DataTable,
-      BlockchainInfo
+      DataTable
     }
   }
 </script>

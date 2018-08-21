@@ -5,7 +5,7 @@
       <tr>
         <th scope="col">Node</th>
         <th scope="col">Region</th>
-        <th scope="col">Status</th>
+        <!--<th scope="col">Status</th>-->
         <th scope="col">ONT ID</th>
       </tr>
       </thead>
@@ -13,7 +13,7 @@
       <tr v-for="item in plots">
         <th scope="row" class="tr-td-name">{{ item[3] }}</th>
         <td>{{ item[2] }}</td>
-        <td class="tr-td-color">{{ item[4] }}</td>
+        <!--<td class="tr-td-color">{{ item[4] }}</td>-->
         <td>{{ item[5] }}</td>
       </tr>
       </tbody>

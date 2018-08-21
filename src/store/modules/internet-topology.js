@@ -1,16 +1,18 @@
+import * as types from "../mutation-type"
+
 function buildContent(region, name, status, ontId) {
   return "<div class='it-tooltip-text'><span class='it-tooltip-tit'>Region: </span><span class='it-tooltip-region'>" + region + "</span></div>" +
     "<div class='it-tooltip-text'><span class='it-tooltip-tit'>Name: </span><span class='it-tooltip-txt'>" + name + "</span></div>" +
     "<div class='it-tooltip-text'><span class='it-tooltip-tit'>Status: </span><span class='it-tooltip-status'>" + status + "</span></div>" +
-    "<div class='it-tooltip-text'><span class='it-tooltip-tit'>ONT ID: </span><span class='it-tooltip-txt'>" + ontId.substring(0,24) + "...</span></div>"
+    "<div class='it-tooltip-text'><span class='it-tooltip-tit'>ONT ID: </span><span class='it-tooltip-txt'>" + ontId.substring(0, 24) + "...</span></div>"
 }
 
-function buildPlots(lat, lng, region, name, status, ontId) {
+function buildPlots(data) {
   return {
-    latitude: lat,
-    longitude: lng,
+    latitude: data[0],
+    longitude: data[1],
     tooltip: {
-      content: buildContent(region, name, status, ontId)
+      content: buildContent(data[2], data[3], data[4], data[5])
     },
     size: 10,
     attrs: {
@@ -23,65 +25,65 @@ function buildPlots(lat, lng, region, name, status, ontId) {
   }
 }
 
-
-
 export default {
-  namespaced: true,
   state: {
-    plotsName: [
-      'Dubhe',
-      'Merak',
-      'Phecda',
-      'Megrez',
-      'Alioth',
-      'Mixar',
-      'Alkaid',
+    /**
+     * 经度， 纬度， 所属洲， 节点名称， 在线状态， ont id
+     */
+    plotsVal: {
+      '1': [-20.170000, 129.070000, 'Oceania', 'Martview', 'Active', 'did:ont:ASCx8f3Dv6fuqcKXYvUmbyHbqo38anTzT1'],
+      '2': [41.020000, -93.350000, 'South America', 'Points', 'Active', 'did:ont:ARU89iSYcLkiReH5b5KZ1z9zUcR34XmPwJ'],
+      '3': [55.451293, 33.371394, 'Europe', 'ONEROOT', 'Active', 'did:ont:AZJn6xNPR4nkM56bkLJJUsYkNGcZ46TH3T'],
+      '4': [-38.392900, -60.442800, 'North America', 'DAD', 'Active', 'did:ont:Ad8MmnWgZWHsi7mJEcuNbWycKEbDXE2a7Q'],
+      '5': [28.392900, 69.442800, 'Asia2', 'CloudDesk', 'Active', 'did:ont:AVXVjmuFs9CoiHUiH4RCLyWwGByCag5SSN'],
 
-      'Aries',
-      'Taurus',
-      'Gemini',
-      'Cancer',
-      'Leo',
-      'Virgo',
-      'Libra'
-    ],
+      '6': [28.392900, 81.4428000, 'Asia1', 'Huobipool', 'Active', 'did:ont:AUXCJs76ijZU38sePH92SnUaod7P5tUmEx'],
+      '7': [-35.170000, 149.070000, 'Oceania', 'J&D TECH LIMITED', 'Active', 'did:ont:AG5Bk9YV74qEtt7u5dGYpuLcwTbWSjz6Tg'],
+      '8': [-5.451293, 30.021820, 'Africa', 'G&Q TECH LIMITED', 'Active', 'did:ont:Adqvs65BWKURFZEnrqyXkaexvbYB2XhXwp'],
+      '9': [35.392900, 139.442800, 'Asia2', 'Matrix Partners', 'Active', 'did:ont:AbYsc5Do8tG5eUyhhX4YAW9pqSYHHCBvox'],
+      '10': [37.330000, 126.580000, 'Asia2', 'Jumple', 'Active', 'did:ont:AdwiepZeuRuz7QsJGhzYhPWDpcGSrQdrjb'],
 
-    plots: {
-      'Dubhe': buildPlots(55.451290, 30.370000, 'Europe', 'Dubhe', 'Active', 'did:ont:AWWChRewNcQ5nZuh8LzF8ksqPaCW8EXPBU'),
-      'Merak': buildPlots(53.020000, -118.350000, 'North America', 'Merak', 'Active', 'did:ont:AJEAVCJpa7JmpDZsJ9vPA1r9fPZAvjec8D'),
-      'Phecda': buildPlots(-35.020000, -62.350000, 'South America', 'Phecda', 'Active', 'did:ont:APSFBEbQzMUjuCtSVwHcRjiqCrDe56jAHJ'),
-      'Megrez': buildPlots(39.460000, 65.420000, 'Asia1', 'Megrez', 'Active', 'did:ont:AGqzuKoEeDfMHPEBPJVs2h2fapxDGoGtK1'),
-      'Alioth': buildPlots(28.370000, 77.130000, 'Asia2', 'Alioth', 'Active', 'did:ont:AUy6TaM9wxTqo9T7FiaYMnDeVExhjsR1Pq'),
-      'Mixar': buildPlots(36.420000, 3.130000, 'Africa', 'Mixar', 'Active', 'did:ont:AXNxyP2HEKW7GoSqYfeqcYfCSE7XaaVVu4'),
-      'Alkaid': buildPlots(-35.170000, 149.070000, 'Oceania', 'Alkaid', 'Active', 'did:ont:AGEdeZu965DFFFwsAWcThgL6uduJf4U7ci'),
+      '11': [51.451293, 30.371394, 'Europe', 'Collider', 'Active', 'did:ont:AWtA9kUr4wXc51WNmYwxd9GrTdyNrY5XMC'],
+      '12': [-15.451293, 32.021820, 'Africa', 'InWeCrypto', 'Active', 'did:ont:Ac5fQiSvKNYbM7bPpYvvNvwhFz88MyDFMK'],
+      '13': [-18.170000, 139.070000, 'Oceania', 'Certik', 'Active', 'did:ont:AdzY1ZW3HpwhMp2K3CxjkdgQSgg5Zwtm4Z'],
+      '14': [-42.392900, -70.442800, 'North America', 'Infinity Stones', 'Active', 'did:ont:AWFR1rPJZXVSrpVksg239F4bSN1mw2z11E'],
+      '15': [-30.170000, 151.070000, 'Oceania', 'Crypto World', 'Active', 'did:ont:AWKLgApUpjVyPVRmyQFQNA2FAsYorCXsi7'],
 
-      'Aries': buildPlots(38.537070, -77.021820, 'USA', 'Aries', 'Active', 'did:ont:AGRYu8FbEAfxg9yQXY1zPGoxf7GAxuiwsM'),
-      'Taurus': buildPlots(35.392900, -89.442800, 'USA', 'Taurus', 'Active', 'did:ont:ARz9yL7UZzDhZHnGcdhKJnDP9ijBxsRvCh'),
-      'Gemini': buildPlots(37.330000, 126.580000, 'Korea', 'Gemini', 'Active', 'did:ont:ASYcQ3EgpRLX7wNBAwsuMadnW5oJp5Aq3q'),
-      'Cancer': buildPlots(48.522552, 2.174203, 'Europe', 'Cancer', 'Active', 'did:ont:AHVFYCDiVUsYnDkTNhyoDyUjy4Pdbu1ARw'),
-      'Leo': buildPlots(39.260000, 115.250000, 'China', 'Leo', 'Active', 'did:ont:ARt5hT4VKn9d3GXaaAwTcbPgg1PJmLu54f'),
-      'Virgo': buildPlots(55.451293, 37.371394, 'Europe', 'Virgo', 'Active', 'did:ont:ASW4oGuYHHEptd3rNZ9tRv2geYHnCxjz6D'),
-      'Libra': buildPlots(1.090000, 103.380000, 'Sigapore', 'Libra', 'Active', 'did:ont:AJ7gdF1Pcey4sAAwkdT6FWVi3o1pKS2Hkq')
+      '16': [28.392900, 118.4428000, 'Asia1', 'ONTLabo', 'Active', 'did:ont:AJXDuPpU41R96DV4FDuDqG7qCLWbVbr9Mu'],
+      '17': [-33.170000, 151.070000, 'Oceania', 'Blockchain Global', 'Active', 'did:ont:AV9JgC4yGQn8u66XqcUbj7dP86dwLPaYpQ'],
+      '18': [18.392900, 98.4428000, 'Asia1', 'Hashed', 'Active', 'did:ont:AJc7haixsxxCKAAVSoJbFLk4RhkhgBvBQZ'],
+      '19': [52.451293, 25.371394, 'Europe', 'SunStar', 'Active', 'did:ont:AHUZodjwH25kn9mLGBJZuFMVZRzTfu7fjb'],
+      '20': [45.451293, 28.371394, 'Europe', 'gf.network', 'Active', 'did:ont:ATYM4p3hQAKB9ekzNWUVYD7Qb38hCkroj8'],
+
+      '21': [18.392900, 79.442800, 'Asia2', 'Accomplice', 'Active', 'did:ont:Ae52qMcDtJ7z2grGKFw89TCia8G7tjBeCZ'],
+      '22': [-7.392900, -70.442800, 'North America', 'FUM', 'Active', 'did:ont:AKCKX9YvnGDdHzoWuePNZ4SVH2TNGWrJoM'],
+      '23': [33.020000, -110.350000, 'South America', 'Trio Bravo', 'Active', 'did:ont:ARv2DJEhnAwmXmqfkNzHK3wFMJPznSR7mv'],
+      '24': [41.020000, -120.350000, 'South America', 'Ontology Universe', 'Active', 'did:ont:AK1jMtS1AC1BvBptgUoFWPMhgEBh5ewyFm'],
+      '25': [4.392900, -70.442800, 'North America', 'HZF Web', 'Active', 'did:ont:ARZv4ETT1LE8itaAATkjXfGQ5nskYuaCh2'],
+
+      '26': [11.451293, -2.021820, 'Africa', 'Avocado', 'Active', 'did:ont:AZ98Zmgt3nGNnMQF4hYmYAr75g6puJjZDd']
     },
 
-    plotsVal: [
-      [55.451293, 37.371394, 'Europe', 'Dubhe', 'Active', 'did:ont:AWWChRewNcQ5nZuh8LzF8ksqPaCW8EXPBU'],
-      [41.020000, -93.350000, 'North America', 'Merak', 'Active', 'did:ont:AJEAVCJpa7JmpDZsJ9vPA1r9fPZAvjec8D'],
-      [-15.470000, 47.560000, 'South America', 'Phecda', 'Active', 'did:ont:APSFBEbQzMUjuCtSVwHcRjiqCrDe56jAHJ'],
-      [139.460000, 35.420000, 'Asia1', 'Megrez', 'Active', 'did:ont:AGqzuKoEeDfMHPEBPJVs2h2fapxDGoGtK1'],
-      [28.370000, 77.130000, 'Asia2', 'Alioth', 'Active', 'did:ont:AUy6TaM9wxTqo9T7FiaYMnDeVExhjsR1Pq'],
-      [36.420000, 3.130000, 'Africa', 'Mixar', 'Active', 'did:ont:AXNxyP2HEKW7GoSqYfeqcYfCSE7XaaVVu4'],
-      [-35.170000, 149.070000, 'Oceania', 'Alkaid', 'Active', 'did:ont:AGEdeZu965DFFFwsAWcThgL6uduJf4U7ci'],
-
-      [38.537070, -77.021820, 'USA', 'Aries', 'Active', 'did:ont:AGRYu8FbEAfxg9yQXY1zPGoxf7GAxuiwsM'],
-      [35.392900, 139.442800, 'USA', 'Taurus', 'Active', 'did:ont:ARz9yL7UZzDhZHnGcdhKJnDP9ijBxsRvCh'],
-      [37.330000, 126.580000, 'Korea', 'Gemini', 'Active', 'did:ont:ASYcQ3EgpRLX7wNBAwsuMadnW5oJp5Aq3q'],
-      [48.522552, 2.174203, 'Europe', 'Cancer', 'Active', 'did:ont:AHVFYCDiVUsYnDkTNhyoDyUjy4Pdbu1ARw'],
-      [39.260000, 115.250000, 'China', 'Leo', 'Active', 'did:ont:ARt5hT4VKn9d3GXaaAwTcbPgg1PJmLu54f'],
-      [55.451293, 37.371394, 'Europe', 'Virgo', 'Active', 'did:ont:ASW4oGuYHHEptd3rNZ9tRv2geYHnCxjz6D'],
-      [1.090000, 103.380000, 'Sigapore', 'Libra', 'Active', 'did:ont:AJ7gdF1Pcey4sAAwkdT6FWVi3o1pKS2Hkq']
-    ]
+    plots: {},
   },
+  mutations: {
+    [types.SET_PLOTS_DATA](state, payload) {
+      state.plots = payload.plots
+    }
+  },
+  actions: {
+    getPlots({commit}) {
+      let plotsVal =this.state.InternetTopology.plotsVal
+      let plots = {}
 
-  mutations: {}
+      for(let plot in plotsVal) {
+        plots[plot] = buildPlots(plotsVal[plot])
+      }
+
+      commit({
+        type: types.SET_PLOTS_DATA,
+        plots: plots,
+      })
+    }
+  }
 }
