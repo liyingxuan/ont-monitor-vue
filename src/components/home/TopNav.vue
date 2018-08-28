@@ -6,20 +6,20 @@
       {{ $t('navbar.bcExplorer') }}
     </a>
 
-    <div class="main-net-icon-1">
+    <div class="main-net-icon-1 d-none d-sm-block">
       <div class="main-net-icon-2">
         <div class="main-net-icon-3"></div>
       </div>
     </div>
 
-    <p class="main-net-txt">Mainnet</p>
+    <p class="main-net-txt d-none d-sm-block">Mainnet</p>
   </div>
 </template>
 
 <script>
-	export default {
-		name: "top-nav"
-	}
+  export default {
+    name: "top-nav"
+  }
 </script>
 
 <style scoped>
@@ -29,10 +29,12 @@
     color: white;
     position: relative;
   }
+
   .navbar-logo {
     width: 113px;
     margin-top: 17px;
   }
+
   .btn-info {
     width: 173px;
     border-radius: 2px;
@@ -44,6 +46,14 @@
     font-size: 13px;
     font-family: SourceSansPro-Bold, sans-serif;
   }
+
+  @media screen and (max-width: 768px) {
+    .btn-info {
+      top: 12px;
+      right: 5px;
+    }
+  }
+
   .btn-info:hover {
     background-color: #2B4045;
   }
@@ -51,12 +61,13 @@
   .main-net-icon-1 {
     width: 40px;
     height: 13px;
-    background: rgba(230,255,122,0.30);
+    background: rgba(230, 255, 122, 0.30);
     border-radius: 11px;
     position: absolute;
     top: 28px;
     right: 129px;
   }
+
   .main-net-icon-2 {
     width: 34px;
     height: 9px;
@@ -67,6 +78,7 @@
     padding-top: 2px;
     padding-left: 3px;
   }
+
   .main-net-icon-3 {
     width: 28px;
     height: 5px;

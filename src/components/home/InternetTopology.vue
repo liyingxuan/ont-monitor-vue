@@ -77,6 +77,12 @@
     height: 600px;
   }
 
+  @media screen and (max-width: 768px) {
+    .mapael > .map {
+      height: 240px;
+    }
+  }
+
   .mapael .mapTooltip {
     position: absolute;
     background-color: white;
