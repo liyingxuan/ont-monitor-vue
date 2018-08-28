@@ -47,13 +47,13 @@ export default {
      * 经度， 纬度， 所属洲， 节点名称， 在线状态， ont id
      */
     plotsVal: {
-      '1': [55.451293, 30.371394, 'Europe', 'Dubhe', 'Active', 'ont:did:AWWChRewNcQ5nZuh8LzF8ksqPaCW8EXPBU'],
-      '2': [33.020000, -90.350000, 'North America', 'Merak', 'Active', 'ont:did:AJEAVCJpa7JmpDZsJ9vPA1r9fPZAvjec8D'],
-      '3': [-41.392900, -68.442800, 'South America', 'Phecda', 'Active', 'ont:did:APSFBEbQzMUjuCtSVwHcRjiqCrDe56jAHJ'],
-      '4': [12.392900, 105.4428000, 'Asia1', 'Megrez', 'Active', 'ont:did:AGqzuKoEeDfMHPEBPJVs2h2fapxDGoGtK1'],
-      '5': [35.392900, 137.442800, 'Asia2', 'Alioth', 'Active', 'ont:did:AUy6TaM9wxTqo9T7FiaYMnDeVExhjsR1Pq'],
-      '6': [-29.451293, 28.521820, 'Africa', 'Mixar', 'Active', 'ont:did:AXNxyP2HEKW7GoSqYfeqcYfCSE7XaaVVu4'],
-      '7': [-29.170000, 119.070000, 'Oceania', 'Alkaid', 'Active', 'ont:did:AGEdeZu965DFFFwsAWcThgL6uduJf4U7ci'],
+      '1': [55.451293, 30.371394, 'Europe', 'Dubhe', 'Active', 'did:ont:AWWChRewNcQ5nZuh8LzF8ksqPaCW8EXPBU'],
+      '2': [33.020000, -90.350000, 'North America', 'Merak', 'Active', 'did:ont:AJEAVCJpa7JmpDZsJ9vPA1r9fPZAvjec8D'],
+      '3': [-41.392900, -68.442800, 'South America', 'Phecda', 'Active', 'did:ont:APSFBEbQzMUjuCtSVwHcRjiqCrDe56jAHJ'],
+      '4': [12.392900, 105.4428000, 'Asia1', 'Megrez', 'Active', 'did:ont:AGqzuKoEeDfMHPEBPJVs2h2fapxDGoGtK1'],
+      '5': [35.392900, 137.442800, 'Asia2', 'Alioth', 'Active', 'did:ont:AUy6TaM9wxTqo9T7FiaYMnDeVExhjsR1Pq'],
+      '6': [-29.451293, 28.521820, 'Africa', 'Mixar', 'Active', 'did:ont:AXNxyP2HEKW7GoSqYfeqcYfCSE7XaaVVu4'],
+      '7': [-29.170000, 119.070000, 'Oceania', 'Alkaid', 'Active', 'did:ont:AGEdeZu965DFFFwsAWcThgL6uduJf4U7ci'],
 
       '8': [-20.170000, 129.070000, 'Oceania', 'Martview', 'Active', 'did:ont:ASCx8f3Dv6fuqcKXYvUmbyHbqo38anTzT1'],
       '9': [-38.392900, -60.442800, 'South America', 'Points', 'Active', 'did:ont:ARU89iSYcLkiReH5b5KZ1z9zUcR34XmPwJ'],
