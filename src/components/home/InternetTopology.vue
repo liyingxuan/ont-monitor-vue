@@ -87,7 +87,7 @@
     position: absolute;
     background-color: white;
     border-radius: 3px;
-    padding: 10px;
+    padding: 6px 10px;
     z-index: 1000;
     display: none;
     color: black;
@@ -99,15 +99,19 @@
     margin: 8px;
   }
 
+  .mapael .mapTooltip .it-tooltip-name {
+    font-weight: bolder;
+  }
+
   .mapael .mapTooltip .it-tooltip-tit {
     display: inline-block;
     width: 76px;
     font-size: 14px;
-    color: #2B4045;
+    color: #AFACAC;
   }
 
   .mapael .mapTooltip .it-tooltip-txt {
-    color: #2B4045;
+    color: #36a3bc;
   }
 
   .mapael .mapTooltip .it-tooltip-status {

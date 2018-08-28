@@ -4,6 +4,7 @@
       <table class="table table-hover">
         <thead>
         <tr>
+          <th scope="col">No</th>
           <th scope="col">Node</th>
           <th scope="col">Region</th>
           <!--<th scope="col">Status</th>-->
@@ -11,11 +12,16 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="item in plots">
-          <th scope="row" class="tr-td-name">{{ item[3] }}</th>
+        <tr v-for="(item,index) in plots">
+          <td>{{index++}}</td>
+          <td class="tr-td-name">{{ item[3] }}</td>
           <td>{{ item[2] }}</td>
           <!--<td class="tr-td-color">{{ item[4] }}</td>-->
-          <td class="td-ont-id">{{ item[5] }}</td>
+          <td class="td-ont-id">
+            <a target="_blank" :href="'https://explorer.ont.io/ontid/' + item[5]">
+              {{ item[5].substr(0,12) + '...' + item[5].substr(38) }}
+            </a>
+          </td>
         </tr>
         </tbody>
       </table>
@@ -51,7 +57,7 @@
     color: #AFACAC;
   }
 
-  .td-ont-id {
+  .td-ont-id > a {
     color: #36a3bc;
   }
 
