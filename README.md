@@ -1,16 +1,19 @@
 # Ontology node monitor
 
-> [Ontology Node Monitor View](https://monitor.ont.io/)
+本体网络Ontology的节点信息监测站点。
+> [Ontology Node Monitor Site](https://monitor.ont.io/)
 
-#### Build Setup
+![Views](example.png)
+
+## Build Setup
 
 ``` bash
 # install dependencies
-npm install
+yarn install
 
 # serve with hot reload at localhost:8080
-npm run dev
+yarn run dev
 
 # build for production with minification
-npm run build
+yarn run build
 ```
