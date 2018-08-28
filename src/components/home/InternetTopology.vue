@@ -10,7 +10,7 @@
     props: ['plots'],
     mounted() {
       this.$nextTick(function () {
-        let $this = $(this.$el)
+        let $this = $(this.$el);
 
         $this.mapael({
           map: {
@@ -26,27 +26,24 @@
               }
             },
           },
-
           plots: this.plots,
         })
       })
     },
     methods: {
       mapRelayAni(betweens, idx) {
-        if (idx >= betweens.length) {
-          return
-        }
+        if (idx >= betweens.length) return;
 
-        let $this = $(this.$el)
-        let _this = this
-        let newLink = {}
+        let $this = $(this.$el);
+        let _this = this;
+        let newLink = {};
         newLink[idx] = {
           between: betweens[idx]
           , attrs: {
             stroke: "#ff8747",
             "stroke-width": 2
           }
-        }
+        };
         $this.trigger('update', [{
           newLinks: newLink,
           animDuration: 400,
@@ -61,12 +58,12 @@
   }
 </script>
 
-<style scoped>
+<style>
   .explorer-index-it-panel {
     position: relative;
     width: 100%;
     margin-top: 28px;
-    margin-bottom: 56px;
+    margin-bottom: -56px;
     clear: both;
   }
 
@@ -75,11 +72,9 @@
     padding-top: 20px;
     margin: 0 auto;
   }
-</style>
-
-<style>
-  .mapael .map {
+  .mapael > .map {
     position: relative;
+    height: 600px;
   }
 
   .mapael .mapTooltip {
@@ -88,38 +83,28 @@
     border-radius: 3px;
     padding: 10px;
     z-index: 1000;
-    min-width: 200px;
     display: none;
     color: black;
     font-size: 14px;
+    font-family: SourceSansPro-Regular, sans-serif;
   }
+
   .mapael .mapTooltip .it-tooltip-text {
     margin: 8px;
   }
+
   .mapael .mapTooltip .it-tooltip-tit {
     display: inline-block;
     width: 76px;
-    font-family: SourceSansPro-Regular, sans-serif;
     font-size: 14px;
     color: #2B4045;
-    line-height: 14px;
   }
+
   .mapael .mapTooltip .it-tooltip-txt {
-    font-family: SourceSansPro-Regular, sans-serif;
-    font-size: 14px;
     color: #2B4045;
-    line-height: 14px;
   }
-  .mapael .mapTooltip .it-tooltip-region {
-    font-family: SourceSansPro-Regular, sans-serif;
-    font-size: 14px;
-    color: #AAB3B4;
-    line-height: 14px;
-  }
+
   .mapael .mapTooltip .it-tooltip-status {
-    font-family: SourceSansPro-Regular, sans-serif;
-    font-size: 14px;
     color: #00AE1D;
-    line-height: 14px;
   }
 </style>

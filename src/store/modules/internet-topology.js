@@ -13,7 +13,7 @@ function buildContent(region, name, status, ontId) {
   return "<div class='it-tooltip-text'><span class='it-tooltip-tit'>Region: </span><span class='it-tooltip-region'>" + region + "</span></div>" +
     "<div class='it-tooltip-text'><span class='it-tooltip-tit'>Name: </span><span class='it-tooltip-txt'>" + name + "</span></div>" +
     "<div class='it-tooltip-text'><span class='it-tooltip-tit'>Status: </span><span class='it-tooltip-status'>" + status + "</span></div>" +
-    "<div class='it-tooltip-text'><span class='it-tooltip-tit'>ONT ID: </span><span class='it-tooltip-txt'>" + ontId.substring(0, 24) + "...</span></div>"
+    "<div class='it-tooltip-text'><span class='it-tooltip-tit'>ONT ID: </span><span class='it-tooltip-txt'>" + ontId.substring(0, 12) + "... " + ontId.substring(38) + "</span></div>"
 }
 
 /**
